@@ -23,7 +23,7 @@ const ColoringBookPrompt = () => {
 
             const enhancedPrompt = `${prompt}, simple line drawing, black and white, coloring book style, clean lines, minimal details, white background, ensure no background shading`;
 
-            const response = await axios.post(`https://aicb-backend.vercel.app/api/generate`, {
+            const response = await axios.post(`https://aicb-server.vercel.app/api/generate`, {
                 prompt: enhancedPrompt,
                 width: imageSize,
                 height: imageSize,
