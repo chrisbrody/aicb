@@ -68,6 +68,11 @@ export default async function handler(req, res) {
         // Process the generated image into line art
         const lineArt = await createLineArt(response.data);
 
+        // Set CORS headers for the response
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
         res.setHeader('Content-Type', 'image/png');
         res.send(lineArt);
 
