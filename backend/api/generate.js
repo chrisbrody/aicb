@@ -16,6 +16,15 @@ async function createLineArt(imageBuffer) {
 }
 
 export default async function handler(req, res) {
+    // Handle CORS preflight requests (OPTIONS)
+    if (req.method === 'OPTIONS') {
+        // Set CORS headers for the preflight request
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        return res.status(200).json({});
+    }
+
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
