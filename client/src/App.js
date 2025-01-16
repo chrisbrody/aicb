@@ -25,7 +25,7 @@ const ColoringBookPrompt = () => {
 
             const apiUrl = process.env.REACT_APP_API_URL;
 
-            const response = await axios.post(`${apiUrl}/generate`, {
+            const response = await axios.post(`https://aicb-backend.vercel.app/generate`, {
                 prompt: enhancedPrompt,
                 width: imageSize,
                 height: imageSize,
